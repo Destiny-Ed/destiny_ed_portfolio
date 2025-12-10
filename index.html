@@ -1,403 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Destiny Eze | Senior Flutter Engineer</title>
-  <meta name="description" content="Senior Flutter Engineer | 4+ years | Fintech, Health-tech & AI | 100k+ users | YC-backed | Open-source contributor"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destiny Ed | Flutter Engineer & Indie Developer</title>
+    <meta name="description"
+        content="Senior Flutter Engineer • 100K+ App Downloads • Blocka, NotteChat, Screenshot Pro • Open-source • YouTube Creator" />
 
-  <!-- Favicon & Fonts -->
-  <link rel="icon" href="https://destinyeze.dev/favicon.ico"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --accent: #00d4ff;
+            --gray: #aaaaaa;
+            --card: #161616;
+            --border: #222222;
+        }
 
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --text: #e0e0e0;
-      --accent: #00d4ff;
-      --accent-dark: #00a8cc;
-      --gray: #999;
-      --card: #161616;
-      --border: #222;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Header */
-    header {
-      position: fixed;
-      top: 0; width: 100%;
-      padding: 1.5rem 0;
-      backdrop-filter: blur(16px);
-      background: rgba(10,10,10,0.85);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #00d4ff, #66f3ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav-links a {
-      margin-left: 2.5rem;
-      font-weight: 500;
-      opacity: 0.9;
-    }
-    .nav-links a:hover { opacity: 1; color: var(--accent); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-    /* Hero */
-    .hero {
-      height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding-top: 80px;
-    }
-    .hero h1 {
-      font-size: 5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1.2s forwards 0.4s;
-    }
-    .hero p {
-      font-size: 1.6rem;
-      color: var(--gray);
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
-      opacity: 0;
-      animation: fadeUp 1s forwards 0.7s;
-    }
-    .hero-buttons {
-      opacity: 0;
-      animation: fadeUp 1s forwards 1s;
-    }
-    .btn {
-      display: inline-block;
-      padding: 16px 36px;
-      margin: 0 12px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-    }
-    .btn-primary:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 50px rgba(0,212,255,0.35);
-    }
-    .btn-outline {
-      border: 2px solid var(--accent);
-      color: var(--accent);
-    }
-    .btn-outline:hover {
-      background: var(--accent);
-      color: #000;
-      transform: translateY(-6px);
-    }
-    .btn-download {
-      background: #1a1a1a;
-      border: 2px solid #333;
-      color: white;
-    }
-    .btn-download:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000;
-    }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-    section { padding: 140px 0; }
-    h2 {
-      font-size: 3.5rem;
-      text-align: center;
-      margin-bottom: 5rem;
-      background: linear-gradient(90deg, #00d4ff, #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin: 0 auto;
+        }
 
-    /* Grid Helpers */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2rem;
-    }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.2rem 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
 
-    /* Cards */
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 2rem;
-      border: 1px solid var(--border);
-      transition: all 0.4s;
-    }
-    .card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px rgba(0,212,255,0.15);
-      border-color: var(--accent);
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .pub-package {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .pub-package:hover { border-color: var(--accent); }
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #00d4ff, #66f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .article-card {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .article-card:hover { border-color: var(--accent); transform: translateX(8px); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-    /* Work With Me */
-    .cta-section {
-      background: linear-gradient(135deg, #00d4ff10, #00a8cc10);
-      border: 1px solid var(--accent);
-      border-radius: 20px;
-      text-align: center;
-      padding: 4rem 2rem;
-      margin: 6rem 2rem;
-    }
+        .nav-links a {
+            font-weight: 500;
+            opacity: 0.9;
+            transition: 0.3s;
+        }
 
-    footer {
-      text-align: center;
-      padding: 5rem 0 3rem;
-      border-top: 1px solid var(--border);
-    }
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 3.5rem; }
-      .nav-links { display: none; } /* Add mobile menu later if needed */
-      h2 { font-size: 2.8rem; }
-    }
-  </style>
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            font-size: 2rem;
+            font-weight: 600;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 100px 1rem 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 1.2s forwards 0.4s;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.7s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeUp 1s forwards 1s;
+        }
+
+        /* BUTTONS – BEAUTIFUL HOVER */
+        .btn {
+            position: relative;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            min-width: 180px;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-download {
+            background: #111;
+            border: 2px solid #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background: #222;
+        }
+
+        section {
+            padding: 110px 0;
+        }
+
+        h2 {
+            font-size: clamp(2.6rem, 8vw, 3.8rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(90deg, #00d4ff, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .pub-package,
+        .article-card {
+            background: var(--card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+        }
+
+        .pub-package:hover,
+        .article-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.12);
+        }
+
+        .pub-package {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.6rem;
+        }
+
+        .article-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.6rem;
+        }
+
+        .article-card img {
+            width: 120px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #00d4ff08, #00a8cc08);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 3rem 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .article-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .article-card img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <nav class="container">
-      <div class="logo">Destiny Eze</div>
-      <div class="nav-links">
+    <!-- Header + Mobile Menu -->
+    <header>
+        <nav class="container">
+            <div class="logo">Destiny Ed</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#packages">Packages</a>
+                <a href="#articles">Articles</a>
+                <a href="#experience">Experience</a>
+                <a href="#work">Work with Me</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu"><i data-lucide="menu"></i></button>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button style="position:absolute;top:2rem;right:2rem;background:none;border:none;color:white;font-size:2.2rem;">
+            <i data-lucide="x"></i>
+        </button>
         <a href="#projects">Projects</a>
         <a href="#packages">Packages</a>
         <a href="#articles">Articles</a>
         <a href="#experience">Experience</a>
         <a href="#work">Work with Me</a>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div>
-      <h1>Destiny Eze</h1>
-      <p>Senior Flutter Engineer • 4+ years • Fintech, Health-tech & AI • 100k+ users • YC-backed • Open-source Contributor</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="Destiny_Eze_Resume_2025.pdf" download class="btn btn-download">
-          <i data-lucide="download" style="width:20px;height:20px;vertical-align:middle;"></i> Download Resume
-        </a>
-        <a href="https://linkedin.com/in/destinyeze" target="_blank" class="btn btn-outline">LinkedIn</a>
-      </div>
+        <a href="Destiny_Dikeocha_Resume.pdf" download>Download Resume</a>
     </div>
-  </section>
 
-  <!-- Featured Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="grid-3">
-        <a href="https://blocka.app" target="_blank" class="card project-card">
-          <img src="https://via.placeholder.com/600x400/00ffaa/000000?text=Blocka+4.8★" style="width:100%;border-radius:12px;margin-bottom:1rem;">
-          <h3>Blocka – AI Parental Control</h3>
-          <p>Real-time monitoring, content filtering & screen-time. 4.8★ • 5k+ downloads</p>
-          <div style="margin-top:1rem;">Flutter • Riverpod • Firebase • RevenueCat</div>
-        </a>
-
-        <a href="#" target="_blank" class="card">
-          <img src="https://via.placeholder.com/600x400/ff00ff/000000?text=DocQuiz+AI" style="width:100%;border-radius:12px;margin-bottom:1rem;">
-          <h3>DocQuiz AI</h3>
-          <p>Generate quizzes & flashcards from PDFs using Gemini API</p>
-          <div>Gemini • Supabase • Flutter</div>
-        </a>
-
-        <a href="#" target="_blank" class="card">
-          <img src="https://via.placeholder.com/600x400/aa00ff/000000?text=TagMate+AR" style="width:100%;border-radius:12px;margin-bottom:1rem;">
-          <h3>TagMate – AR Indoor Tracking</h3>
-          <p>Find lost items with ARCore/ARKit + Bluetooth beacons</p>
-          <div>ARCore • ARKit • BLE • Flutter</div>
-        </a>
-        <!-- Add 3–6 more if you want -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Open-Source Packages -->
-  <section id="packages" style="background:#0f0f0f;">
-    <div class="container">
-      <h2>Open-Source Packages on pub.dev</h2>
-      <div class="grid-3">
-
-        <a href="https://pub.dev/packages/your_package" target="_blank" class="pub-package">
-          <div style="font-size:3rem;color:var(--accent);">📦</div>
-          <div>
-            <h3>flutter_animated_charts</h3>
-            <p>2.1k likes • Beautiful animated charts with shaders & gestures</p>
-          </div>
-        </a>
-
-        <a href="https://pub.dev/packages/super_riverpod" target="_blank" class="pub-package">
-          <div style="font-size:3rem;color:var(--accent);">🔥</div>
-          <div>
-            <h3>super_riverpod</h3>
-            <p>1.8k likes • Advanced Riverpod helpers & codegen</p>
-          </div>
-        </a>
-
-        <a href="https://pub.dev/packages/easy_localization_plus" target="_blank" class="pub-package">
-          <div style="font-size:3rem;color:var(--accent);">🌍</div>
-          <div>
-            <h3>easy_localization_plus</h3>
-            <p>3.4k likes • JSON + fallback + RTL improvements</p>
-          </div>
-        </a>
-
-      </div>
-      <p style="text-align:center;margin-top:3rem;">
-        <a href="https://pub.dev/publishers/destinyeze.dev/packages" target="_blank" class="btn btn-outline">See All Packages →</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Articles & Tutorials -->
-  <section id="articles">
-    <div class="container">
-      <h2>Articles & Tutorials</h2>
-      <div style="max-width:900px;margin:0 auto;">
-
-        <div class="article-card">
-          <img src="https://via.placeholder.com/150x100" style="border-radius:8px;">
-          <div>
-            <h3>How I Built a 4.8★ Parental Control App with Flutter & AI</h3>
-            <p>Deep dive: Riverpod architecture, Firebase rules, RevenueCat, App Store review tricks</p>
-            <a href="#">Read on Medium →</a> • 32 min
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://via.placeholder.com/150x100" style="border-radius:8px;">
-          <div>
-            <h3>Flutter Shaders in Production – 60 FPS Custom UI</h3>
-            <p>From Fragment shaders to Impeller – real examples from iTouch Wearables</p>
-            <a href="#">Watch on YouTube →</a> • 180k views
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://via.placeholder.com/150x100" style="border-radius:8px;">
-          <div>
-            <h3>From 3.8 → 4.7 Rating: My App Store Optimization Journey</h3>
-            <p>Screenshots, A/B testing, localization, and performance fixes that moved the needle</p>
-            <a href="#">Read →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience (Timeline) -->
-  <section id="experience">
-    <div class="container">
-      <h2>Experience</h2>
-      <!-- Same timeline code from previous version – kept short here for brevity -->
-      <p style="text-align:center;color:var(--gray);">Full resume available above ↑</p>
-    </div>
-  </section>
-
-  <!-- Work With Me / Book Session -->
-  <section id="work">
-    <div class="container">
-      <div class="cta-section">
-        <h2 style="background:none;-webkit-text-fill-color:white;margin-bottom:1.5rem;">Let's Build Something Amazing Together</h2>
-        <p style="font-size:1.3rem;max-width:700px;margin:0 auto 2.5rem;color:var(--gray);">
-          Need a senior Flutter engineer, code review, mentorship, or full app development?<br>
-          I help startups and companies ship faster, cleaner, and more performant apps.
-        </p>
+    <!-- Hero -->
+    <section class="hero">
         <div>
-          <a href="https://calendly.com/destinyeze/30min" target="_blank" class="btn btn-primary" style="font-size:1.2rem;padding:18px 42px;">
-            Book a Free 30-min Call
-          </a>
-          <a href="mailto:destiny@destinyeze.dev" class="btn btn-outline" style="font-size:1.2rem;padding:18px 42px;">
-            Email Me Directly
-          </a>
+            <h1>Destiny Ed</h1>
+            <p>Senior Flutter Engineer • 4+ years • Fintech, Health-tech & AI • 100k+ users • YC-backed • Open-source
+                Contributor • YouTube Creator</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="DestinyEd-resume.pdf" download class="btn btn-download">
+                    <i data-lucide="download"></i> Resume
+                </a>
+                <a href="https://linkedin.com/in/destiny-ed" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
         </div>
-        <p style="margin-top:2rem;color:var(--gray);">
-          Rates: $150–250/hr • Fixed-price projects welcome • Available for long-term contracts
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <p>Made with <i data-lucide="heart"></i> and tons of Flutter — Destiny Eze © 2025</p>
-      <p style="margin-top:1rem;">
-        <a href="https://github.com/destinyeze"><i data-lucide="github"></i></a> •
-        <a href="https://linkedin.com/in/destinyeze"><i data-lucide="linkedin"></i></a> •
-        <a href="https://youtube.com/@destinyeze"><i data-lucide="youtube"></i></a> •
-        <a href="https://pub.dev/publishers/destinyeze.dev/packages"><i data-lucide="package"></i> pub.dev</a>
-      </p>
-    </div>
-  </footer>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <a href="https://play.google.com/store/apps/details?id=app.blockr" target="_blank" class="card">
+                    <img src="blocka.PNG" alt="Blocka">
+                    <h3>Blocka – Parental Control</h3>
+                    <p>Secure app & website blocker • 4.8 stars</p>
+                </a>
+                <a href="#" target="_blank" class="card">
+                    <img src="blocka.PNG" style="width:100%;border-radius:12px;margin-bottom:1rem;">
+                    <h3>DocQuiz AI</h3>
+                    <p>Generate quizzes & flashcards from PDFs using Gemini API</p>
+                    <div>Gemini • Supabase • Flutter</div>
+                </a>
 
-  </footer>
+                <a href="#" target="_blank" class="card">
+                    <img src="https://via.placeholder.com/600x400/aa00ff/000000?text=TagMate+AR"
+                        style="width:100%;border-radius:12px;margin-bottom:1rem;">
+                    <h3>TagMate – AR Indoor Tracking</h3>
+                    <p>Find lost items with ARCore/ARKit + Bluetooth beacons</p>
+                    <div>ARCore • ARKit • BLE • Flutter</div>
+                </a>
+                <a href="https://nottechat.com" target="_blank" class="card">
+                    <img src="https://via.placeholder.com/600x400/ff00ff/000000?text=NotteChat" alt="NotteChat">
+                    <h3>NotteChat – AI Document Chat</h3>
+                    <p>Gemini-powered PDF conversations</p>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=ap.screenshot.pro" target="_blank" class="card">
+                    <img src="https://via.placeholder.com/600x400/0088ff/ffffff?text=Screenshot+Pro"
+                        alt="Screenshot Pro">
+                    <h3>Screenshot Pro</h3>
+                    <p>Auto App Store graphics generator</p>
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    lucide.createIcons();
+    <!-- Open-Source Packages -->
+    <section id="packages" style="background:#0f0f0f;">
+        <div class="container">
+            <h2>Open-Source Packages (pub.dev)</h2>
+            <div class="grid">
+                <a href="https://pub.dev/packages/date_count_down" target="_blank" class="pub-package">
+                    <img src="https://via.placeholder.com/600x400/0088ff/ffffff?text=Screenshot+Pro"
+                        alt="Screenshot Pro">
+                    <div>
+                        <h3>date_count_down</h3>
+                        <p>Simple countdown timer • 150+ likes</p>
+                    </div>
+                </a>
+                <a href="https://pub.dev/packages/doc_text_extractor" target="_blank" class="pub-package">
+                    <img src="https://via.placeholder.com/600x400/0088ff/ffffff?text=Screenshot+Pro"
+                        alt="Screenshot Pro">
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
-      });
-    });
-  </script>
+                    <div>
+                        <h3>doc_text_extractor</h3>
+                        <p>Offline PDF/Word text extraction</p>
+                    </div>
+                </a>
+                <a href="https://pub.dev/packages/flutter_text_form_field" target="_blank" class="pub-package">
+                    <img src="https://via.placeholder.com/600x400/0088ff/ffffff?text=Screenshot+Pro"
+                        alt="Screenshot Pro">
+
+                    <div>
+                        <h3>flutter_text_form_field</h3>
+                        <p>Beautiful reusable form fields</p>
+                    </div>
+                </a>
+            </div>
+            <p style="text-align:center;margin-top:3rem;">
+                <a href="https://pub.dev/publishers/destinyeze.dev/packages" target="_blank" class="btn btn-outline">See
+                    All Packages →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Articles & Tutorials -->
+    <section id="articles">
+        <div class="container">
+            <h2>Articles & Tutorials</h2>
+            <div style="max-width:900px;margin:0 auto;">
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/150x100/ff0000/ffffff?text=YouTube" alt="YouTube">
+                    <div>
+                        <h3>Flutter Shaders in Production – 60 FPS Custom UI</h3>
+                        <p>Real examples from iTouch Wearables app • 180k views</p>
+                        <a href="#">Watch on YouTube</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/150x100/00ff00/000000?text=Medium" alt="Medium">
+                    <div>
+                        <h3>How I Built a 4.8-Star Parental Control App</h3>
+                        <p>Riverpod, Firebase rules, RevenueCat secrets</p>
+                        <a href="#">Read on Medium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" style="background:#0f0f0f;">
+        <div class="container">
+            <h2>Experience</h2>
+            <div style="max-width:800px;margin:0 auto;text-align:center;">
+                <p style="font-size:1.1rem;line-height:1.8;">
+                    <strong>Freelance Flutter Consultant</strong> — 2023–Present<br>
+                    <strong>Senior Flutter Developer</strong> — American Exchange Group (NY) — 2022–2024<br>
+                    <strong>Lead Mobile Engineer</strong> — Moni Africa (YC W22) — 2022<br>
+                    <strong>Senior Mobile Engineer</strong> — Meghee — 2019–2022
+                </p>
+                <p style="margin-top:2rem;"><a href="Destiny_Dikeocha_Resume.pdf" download
+                        class="btn btn-outline">Download Full Resume</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work with Me -->
+    <section id="work">
+        <div class="container">
+            <div class="cta-section">
+                <h2 style="background:none;-webkit-text-fill-color:white;margin-bottom:1.5rem;">Let's Build Something
+                    Amazing Together</h2>
+                <p style="font-size:1.3rem;max-width:700px;margin:0 auto 2.5rem;color:var(--gray);">
+                    Need a senior Flutter engineer, code review, mentorship, or full app development?<br>
+                    I help startups and companies ship faster, cleaner, and more performant apps.
+                </p>
+                <div>
+                    <!-- <a href="https://calendly.com/destinyeze/30min" target="_blank" class="btn btn-primary"
+                        style="font-size:1.2rem;padding:18px 42px;">
+                        Book a Free 30-min Call
+                    </a> -->
+                    <a href="mailto:talk2destinyed@gmail.com" class="btn btn-outline"
+                        style="font-size:1.2rem;padding:18px 42px;">
+                        Email Me Directly
+                    </a>
+                </div>
+                <p style="margin-top:2rem;color:var(--gray);">
+                    Rates: $40–150/hr • Fixed-price projects welcome • Available for long-term contracts
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Destiny Ed © 2025</p>
+            <p style="margin-top:1rem;opacity:0.8;">
+                <a href="https://github.com/Destiny-Ed"><i data-lucide="github"></i></a> •
+                <a href="https://linkedin.com/in/destiny-ed"><i data-lucide="linkedin"></i></a> •
+                <a href="https://youtube.com/@Destiny_Ed"><i data-lucide="youtube"></i></a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeBtn = mobileMenu.querySelector('button');
+
+        menuBtn.onclick = () => mobileMenu.classList.add('open');
+        closeBtn.onclick = () => mobileMenu.classList.remove('open');
+        mobileMenu.onclick = (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('open'); };
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.onclick = (e) => {
+                const href = a.getAttribute('href');
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('open');
+                    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+        });
+    </script>
 </body>
+
 </html>
